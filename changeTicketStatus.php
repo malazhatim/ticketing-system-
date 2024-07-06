@@ -1,15 +1,17 @@
 <?php
 if(isset($_GET['tid'])){
-    if(isset($_GET['na'])){
+    if(isset($_GET['na'])){//checking if page is accessed with a ticket
+        
         require_once "connection/connection.php";
         $TicketID = $_GET['tid'];
         $TicketStatus = $_GET['na'];
         $get_old_status = "SELECT TicketStatus FROM tickets WHERE TicketID = $TicketID";
+        //get the current ticket status to write on the ticket action comment
         $get_old_status_query = mysqli_query($conn,$get_old_status);
         $MyOldStatus = mysqli_fetch_array($get_old_status_query);
         $TicketOldStatus = $MyOldStatus['TicketStatus'];
         session_start();
-        $UserID = $_SESSION['acu'];
+        $UserID = $_SESSION['acu'];//get the current user who is logged in
         $change_status = "UPDATE tickets SET TicketStatus = $TicketStatus,TicketHandleBy = $UserID WHERE TicketID = $TicketID";
         $change_status_query = mysqli_query($conn,$change_status);
         if($change_status_query){

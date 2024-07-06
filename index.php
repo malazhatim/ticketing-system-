@@ -1,4 +1,9 @@
 <?php
+
+/*this page check if user is logged or not 
+if user is logged then the system will check the user type to transfer him to the correct page
+if not the page will redirect the user to login page
+*/
 session_start();
 if(isset($_SESSION['acu'])){
     $UserType = $_SESSION['acut'];

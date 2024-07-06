@@ -1,7 +1,10 @@
 <?php
 session_start();
+
+
 function redirect_page()
 {
+    //this function check the current session to check which type of the users is logged to redirect
     if (isset($_SESSION['acut'])) {
         $UserType = $_SESSION['acut'];
         switch ($UserType) {
@@ -26,6 +29,7 @@ if (isset($_POST['login'])) {
     $email = $_POST['username'];
     $password = $_POST['password'];
     $check_login = "SELECT * FROM users WHERE UserEmail = '$email' AND UserPassword = '" . md5($password) . "'";
+    //checking if user with entered email and password exist or not
     $check_login_query = mysqli_query($conn, $check_login);
     $UserID = $_SESSION['acu'];
     $UserType = $_SESSION['acut'];
@@ -34,9 +38,11 @@ if (isset($_POST['login'])) {
             $MyRow = mysqli_fetch_array($check_login_query);
             $result = 0;
            if ($MyRow['UserSusspend']==1) {
+            //check if user is suspended from login
                $result = 2;
             }
             if($MyRow['Deleted']==1) {
+                //check if user is deleted from the system
                 $result = 3;
             }
         } else {
@@ -72,6 +78,7 @@ $no_nav = true;
 if(isset($_GET['lfb'])){
     $LoginFeedBack = $_GET['lfb'];
     switch($LoginFeedBack){
+        //check which feed back message type is sent to the page to display the message
         case 1: $ErrorMessage = "خطأ في اسم المستخدم أو كلمة المرور";
         break;
         case 2: $ErrorMessage = "المستخدم موقوف الرجاء مراجعة مدير النظام";

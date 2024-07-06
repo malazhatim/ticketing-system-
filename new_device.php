@@ -1,5 +1,6 @@
 <?php
 
+//check if user is logged in or not 
 session_start();
 if (!isset($_SESSION['acu'])) {
     header('location:index.php');

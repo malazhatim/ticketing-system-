@@ -1,5 +1,6 @@
 <?php
 
+//check if user is logged in
 session_start();
 if (!isset($_SESSION['acu'])) {
     header('location:index.php');
@@ -58,7 +59,7 @@ $title = "الأجهزة";
             function delete_device(DeviceID, DeviceName) {
                 let deleteDevice = confirm('هل أنت متأكد من حذف الجهاز ' + DeviceName + ' ؟ ');
                 if (deleteDevice) {
-                    window.location = 'delete_device.php?did=' + DeviceID;
+                    window.location = 'delete_device.php?did=' + DeviceID;// sending to deleting page
                 }
             }
 

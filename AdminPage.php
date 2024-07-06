@@ -1,5 +1,6 @@
 <?php
 
+//checking if user is logged in or not
 session_start();
 if (!isset($_SESSION['acu'])) {
     header('location:index.php');
@@ -22,7 +23,7 @@ if (!isset($_SESSION['acu'])) {
     <link href="assets/css/style.css" rel="stylesheet">
     <script>
         function changeTicketStatus(TicketID,TicketCurrentStatus){
-            let TicketNextStatus = TicketCurrentStatus+1;
+            let TicketNextStatus = TicketCurrentStatus+1; //each ticket status changes to the next status by adding 1 to the current status
             window.location = 'changeTicketStatus.php?tid='+TicketID+'&na='+TicketNextStatus;
         }    
     </script>
@@ -34,6 +35,7 @@ if (!isset($_SESSION['acu'])) {
         <?php
         require "connection/connection.php";
         $get_tickets = "SELECT * FROM tickets INNER JOIN devices ON devices.DeviceID = tickets.TicketDevice INNER JOIN users ON users.UserID = tickets.TicketUserID ORDER BY FIELD(TicketStatus,'5','4','2','1','6','3','7'),TicketTime";
+        //get all system's ticket
         $get_tickets_query = mysqli_query($conn, $get_tickets);
         if ($get_tickets_query) {
             if (mysqli_num_rows($get_tickets_query) > 0) { ?>
@@ -60,6 +62,7 @@ if (!isset($_SESSION['acu'])) {
                                 $ExtraClass = "MyClass";
                                 $ButtonLabel = "استلام";
                                 $TrStyle = "bg-danger";
+                                //this switch check the current status of each ticket and set the style for buttons and labels
                                 switch ($row['TicketStatus']) {
                                     case 1:
                                         $Status = "جديدة";

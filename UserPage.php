@@ -22,6 +22,7 @@ if (!isset($_SESSION['acu'])) {
     <?php
         require "connection/connection.php";
         $get_tickets = "SELECT * FROM tickets INNER JOIN devices ON devices.DeviceID = tickets.TicketDevice INNER JOIN users ON users.UserID = tickets.TicketUserID WHERE UserID = " . $_SESSION['acu'] . " ORDER BY FIELD(TicketStatus,'2','1','5','4','6','3','7'),TicketTime";
+        //getting all ticket the user added
         $get_tickets_query = mysqli_query($conn, $get_tickets);
         if ($get_tickets_query) {
             if (mysqli_num_rows($get_tickets_query) > 0) {

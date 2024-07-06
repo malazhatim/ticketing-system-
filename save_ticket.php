@@ -1,6 +1,7 @@
 <?php
 function countDigits($MyNum)
 {
+    //counting the number of digits on the id to add zeros to make the ticket number
     $MyNum = (int)$MyNum;
     $count = 0;
 
