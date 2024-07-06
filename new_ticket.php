@@ -43,7 +43,7 @@ $title = "تذكرة جديدة";
             </div>
             <div class='col-md-6 mt-3 mt-md-0'>
                 <label class="form-label">الجهاز</label>
-                <select id='DevicType' name='DeviceType' class='form-control'>
+                <select id='DevicType' required name='DeviceType' class='form-control'>
                     <option value=''> اختر نوع الجهاز </option>
                     <?php
                     $get_device = "SELECT * FROM devices";
