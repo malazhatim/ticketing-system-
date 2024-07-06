@@ -6,7 +6,7 @@ if (!isset($_SESSION['acu'])) {
 } else {
     if (isset($_SESSION['acut'])) {
         if (($_SESSION['acut'] != 1)&&($_SESSION['acut'] != 2)) {
-            header('location:AccessDenied.php');
+            header('location:AccessDenied.html');
         }
     }
 }

@@ -6,7 +6,7 @@ if (!isset($_SESSION['acu'])) {
 } else {
     if (isset($_SESSION['acut'])) {
         if ($_SESSION['acut'] != 1) {
-            header('location:AccessDenied.php');
+            header('location:AccessDenied.html');
         }
     }
 }
@@ -16,7 +16,7 @@ if (isset( $_GET['uid'])) {
     $UserID = $_GET['uid'];
 }
 else{
-    header('location:AccessDenied.php');
+    header('location:AccessDenied.html');
 }
 // Page Title ------
 $title = "تحويل تذاكر";
