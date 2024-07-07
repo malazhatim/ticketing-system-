@@ -31,11 +31,20 @@ Benefits:
 4-Cost-Effective: A cost-efficient solution that meets your support needs without breaking the bank.
 
 
-Get Started Today
 
-Transform the way you handle technical support with our IT Support Ticketing System. Experience the benefits of a streamlined, efficient, and user-friendly support system designed to meet the needs of both organizations and end-users. Contact us today to learn more and get started!
+Deployed Site:https://ticketing-alx.000webhostapp.com
+Project Blog:https://www.linkedin.com/feed/update/urn:li:activity:7215033396618510337/
+Author's LinkedIn:https://www.linkedin.com/in/malaz-hatim-babiker/
 
-
+Installation:
+1-Clone the repository
+2-Navigate to the project directory
+3-Set up the database:
+   *Create a MySQL database.
+   *Import the provided SQL file into your database.
+4-Update the database configuration in config.php
+5-Start a local server using PHP
+6-Open your browser and navigate to http://localhost:8000
 
 
 
